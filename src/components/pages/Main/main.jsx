@@ -9,12 +9,9 @@ import BtnCarouselComponent from "../../BtnsCarousel/BtnCarousel";
 import PDFViewer from "../../PdfViewer/PDFViewer";
 const Main = () => {
     const [isMobile, setIsMobile] = useState(false);
-    const [isPDFvisible, setIsPDFvisible] = useState(false)
     const setSettings = async()=>{
         const userAgent = navigator.userAgent.toLowerCase();
         setIsMobile(/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent));
-        const isConfirmed = await localStorage.getItem('hasAgreed')
-        setIsPDFvisible(isConfirmed ? false : true)
     }
     useEffect(() => {
         setSettings()
@@ -24,7 +21,7 @@ const Main = () => {
     return (
         <>
             <PDFViewer />
-            {(isMobile && showBanner)  <UpdateBanner onClose={() => setShowBanner(false)} />}
+            {(isMobile && showBanner) && <UpdateBanner onClose={() => setShowBanner(false)} />}
             <div className="header">
                 <div className="logo">
                     <svg width="124" height="22" viewBox="0 0 124 22" fill="none" xmlns="http://www.w3.org/2000/svg">
