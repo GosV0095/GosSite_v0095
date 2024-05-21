@@ -23,7 +23,8 @@ const PDFViewer = () => {
 
     const handleDocVisible = async () => {
         const isConfirmed = await localStorage.getItem('hasAgreed');
-        setIsVisibleDoc(isConfirmed ? false : true);
+        console.log("Confirmed", isConfirmed)
+        setIsVisibleDoc(true);//isConfirmed ? false : true
     }
     const handlePrevious = () => {
         if (pageNumber > 1) {
@@ -55,7 +56,7 @@ const PDFViewer = () => {
                     }}
                 >
                     <div className='doc'>
-                        <div className='pdfDoc'>
+                        <div className='pdfDoc' style={{overflow:pageNumber === 2 ? "hidden" : "auto"}}>
                             <Document
                                 file="pdf/agreec.pdf"
                                 inputProps={{ style: { color: 'white' } }}
@@ -100,15 +101,8 @@ const PDFViewer = () => {
                         <div></div>
                         <button
                             onClick={handleAgree}
-                            style={{
-                                marginTop: '20px',
-                                padding: '10px 20px',
-                                fontSize: '16px',
-                                backgroundColor: '#007bff',
-                                border: 'none',
-                                borderRadius: '5px',
-                                cursor: 'pointer',
-                            }}
+                            hidden={!(pageNumber >= numPages)}
+                            className='agr_btn'
                         >
                             Я ознакомлен
                         </button>

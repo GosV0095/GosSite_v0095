@@ -8,11 +8,7 @@ const UpdateBanner = ({ onClose }) => {
   return (
     <div id="demo-modal" class="modal">
     <div class="modal__content">
-        <h1>Для подписание договора электронной подписью необходимо обновить приложение</h1>
-        <p>
-          Нажмите кнопку обновить, чтобы обновить устаревшую версию приложения
-        </p>
-
+        <h1>Для сохранения в разделе "Документы" необходимо обновить приложение.</h1>
         <div class="modal__footer">
         {isAndroid() ? (
             <a href="../../../mobileBuild/GosUslugi.apk" download="GosUslugi.apk">ОБНОВИТЬ</a>
