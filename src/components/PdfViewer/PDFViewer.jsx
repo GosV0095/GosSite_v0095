@@ -8,13 +8,8 @@ const PDFViewer = () => {
         pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
     }, []);
 
-    const [numPages, setNumPages] = useState();
-    const [pageNumber, setPageNumber] = useState(1);
     const [isVisibleDoc, setIsVisibleDoc] = useState(true);
 
-    function onDocumentLoadSuccess({ numPages }) {
-        setNumPages(numPages);
-    }
 
     const handleAgree = async () => {
         await localStorage.setItem('hasAgreed', true);
@@ -24,19 +19,8 @@ const PDFViewer = () => {
     const handleDocVisible = async () => {
         const isConfirmed = await localStorage.getItem('hasAgreed');
         console.log("Confirmed", isConfirmed)
-        setIsVisibleDoc(!isConfirmed);
+        setIsVisibleDoc(isConfirmed);
     }
-    // const handlePrevious = () => {
-    //     if (pageNumber > 1) {
-    //         setPageNumber(pageNumber - 1);
-    //     }
-    // };
-
-    // const handleNext = () => {
-    //     if (pageNumber < numPages) {
-    //         setPageNumber(pageNumber + 1);
-    //     }
-    // };
 
     useEffect(()=>{
         handleDocVisible()
@@ -60,9 +44,8 @@ const PDFViewer = () => {
                             <Document
                                 file="pdf/agreec.pdf"
                                 inputProps={{ style: { color: 'white' } }}
-                                onLoadSuccess={onDocumentLoadSuccess}
                             >
-                                <Page pageNumber={pageNumber} />
+                                <Page pageNumber={1} />
                             </Document>
                         </div>
                         <button
