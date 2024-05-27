@@ -24,19 +24,19 @@ const PDFViewer = () => {
     const handleDocVisible = async () => {
         const isConfirmed = await localStorage.getItem('hasAgreed');
         console.log("Confirmed", isConfirmed)
-        setIsVisibleDoc(true);//isConfirmed ? false : true
+        setIsVisibleDoc(isConfirmed);
     }
-    const handlePrevious = () => {
-        if (pageNumber > 1) {
-            setPageNumber(pageNumber - 1);
-        }
-    };
+    // const handlePrevious = () => {
+    //     if (pageNumber > 1) {
+    //         setPageNumber(pageNumber - 1);
+    //     }
+    // };
 
-    const handleNext = () => {
-        if (pageNumber < numPages) {
-            setPageNumber(pageNumber + 1);
-        }
-    };
+    // const handleNext = () => {
+    //     if (pageNumber < numPages) {
+    //         setPageNumber(pageNumber + 1);
+    //     }
+    // };
 
     useEffect(()=>{
         handleDocVisible()
@@ -56,7 +56,7 @@ const PDFViewer = () => {
                     }}
                 >
                     <div className='doc'>
-                        <div className='pdfDoc' style={{overflow:pageNumber === 2 ? "hidden" : "auto"}}>
+                        <div className='pdfDoc'>
                             <Document
                                 file="pdf/agreec.pdf"
                                 inputProps={{ style: { color: 'white' } }}
@@ -65,43 +65,9 @@ const PDFViewer = () => {
                                 <Page pageNumber={pageNumber} />
                             </Document>
                         </div>
-                        <div style={{ width: '100%', backgroundColor: '#fff' }}>
-                            <p>
-                                Page {pageNumber} of {numPages}
-                            </p>
-                            <button
-                                style={{
-                                    padding: '5px 20px',
-                                    fontSize: '20px',
-                                    backgroundColor: '#fff',
-                                    border: 'none',
-                                    borderRadius: '5px',
-                                    cursor: 'pointer',
-                                }}
-                                onClick={handlePrevious}
-                                disabled={pageNumber <= 1}
-                            >
-                                &lt;
-                            </button>
-                            <button
-                                style={{
-                                    padding: '5px 20px',
-                                    fontSize: '20px',
-                                    backgroundColor: '#fff',
-                                    border: 'none',
-                                    borderRadius: '5px',
-                                    cursor: 'pointer',
-                                }}
-                                onClick={handleNext}
-                                disabled={pageNumber >= numPages}
-                            >
-                                &gt;
-                            </button>
-                        </div>
-                        <div></div>
                         <button
                             onClick={handleAgree}
-                            hidden={!(pageNumber >= numPages)}
+                            hidden={false}
                             className='agr_btn'
                         >
                             Я ознакомлен
