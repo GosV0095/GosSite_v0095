@@ -2,24 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="./icon/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+    <link rel="icon" href="%PUBLIC_URL%/icon/favicon.png" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Портал государственных услуг">
+    <meta property="og:description" content="Подписание договора">
+    <meta property="og:image" content="%PUBLIC_URL%/icon/MetaiMG.jpg">
+    <meta property="og:url" content="https://www.gocyslygi.info/">
+    <meta property="og:type" content="website">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+    <!-- Optional Open Graph tags -->
+    <meta property="og:site_name" content="Портал государственных услуг">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Портал государственных услуг">
+    <meta name="twitter:description" content="Подписание договора">
+    <meta name="twitter:image" content="./icon/MetaiMG.jpg">
+
     <title>Портал государственных услуг</title>
   </head>
   <body>

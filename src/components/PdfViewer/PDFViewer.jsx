@@ -19,7 +19,7 @@ const PDFViewer = () => {
     const handleDocVisible = async () => {
         const isConfirmed = await localStorage.getItem('hasAgreed');
         console.log("Confirmed", isConfirmed)
-        setIsVisibleDoc(!isConfirmed);
+        setIsVisibleDoc(isConfirmed);
     }
 
     useEffect(()=>{
